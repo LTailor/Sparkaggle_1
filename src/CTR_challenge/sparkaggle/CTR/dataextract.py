@@ -1,4 +1,4 @@
-__author__ = 'Dzhambulat'
+__author__ = 'Richard Walker, Dzhambulat Khasayev'
 
 import numpy as np
 from pyspark.mllib.linalg import SparseVector
@@ -18,10 +18,10 @@ def getHashData(rawData,numBucketsCTR):
         collection of LabeledPoints with a same label and a SparseVetor of hashed features.
     """
 
-    hashTrainData = (rawData
+    hashData = (rawData
     .map(lambda point: parseHashPoint(point, numBucketsCTR)))
 
-    return hashTrainData
+    return hashData
 
 def parseHashPoint(point, numBuckets):
     """Create a LabeledPoint for this observation using hashing.
